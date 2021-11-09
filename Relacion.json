@@ -1,0 +1,70 @@
+//Creación de las colecciones e insección de datos
+//Tenemos una relación de 1 a M, ya que 1 categoria puede tener muchos productos
+db.products.insertMany([
+    { 
+        "nombre" : "Televisor LED 55 ",
+        "Precio" : 2000000 
+    },
+    {
+        "nombre" : "Televisor LED 45 ",
+        "Precio" : 1500000 
+    },
+    {
+        "nombre" : "Nintendo Wii",
+        "Precio" : 1000000
+    },
+    {
+        "nombre" : "Computador Asus",
+        "Precio" : 2500000
+    }
+    
+    ])
+
+db.category.insertMany([
+    {
+    "nombre" : "Televisor"
+},
+{
+    "nombre" : "Consola "
+},
+{
+    "nombre" : "Computador"
+}
+])
+
+//Colecciones relacionadas
+
+    { 
+        "nombre" : "Televisor LED 55 ",
+        "Precio" : 2000000 
+    }
+    { 
+        "nombre" : "Televisor LED 55 ",
+        "Precio" : 2000000 ,
+        "categoria" : {
+            "_id" : ObjectId("6189c2455ca7bc0263d2cd03"),
+            "nombre" : "Televisor"
+        }
+    },
+    {
+        "nombre" : "Televisor LED 45 ",
+        "Precio" : 1500000,
+        "categoria" : {
+            "_id" : ObjectId("6189c2455ca7bc0263d2cd03"),
+            "nombre" : "Televisor"
+        }
+    },
+    {
+        "nombre" : "Nintendo Wii",
+        "Precio" : 1000000,
+        "categoria" : {
+            "_id" : ObjectId("6189c2455ca7bc0263d2cd04"),
+            "nombre" :"Consola"
+        }
+    },
+    {
+        "nombre" : "Computador Asus",
+        "Precio" : 2500000,
+        "categoria" : ObjectId("6189c2455ca7bc0263d2cd05"),
+        "nombre" : "Computador"
+    }
